@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: taskbook_development
+  pool: 5
+  username: taskbook
+  password: blackmagic
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: taskbook_test
+  pool: 5
+  username: taskbook
+  password: blackmagic
