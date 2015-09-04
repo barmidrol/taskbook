@@ -15,7 +15,10 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'tlsmail'
 gem 'rails_12factor', group: :production
-# gem 'figaro'
+gem 'figaro'
+gem 'simple_form'
+gem 'devise-bootstrap-views'
+gem 'bourbon'
 
 group :development, :test do
   gem 'byebug'
