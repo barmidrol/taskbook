@@ -11,7 +11,7 @@ Rails.application.configure do
     :domain => "gmail.com",
     :authentication => :login,
     :user_name => ENV["app_email"],
-    :password => ENV["app_password"]
+    :password => ENV["app_password"]  
   }
   # Code is not reloaded between requests.
   config.cache_classes = true
