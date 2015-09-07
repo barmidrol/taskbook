@@ -19,9 +19,14 @@ gem 'figaro'
 gem 'simple_form'
 gem 'devise-bootstrap-views'
 gem 'bourbon'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
