@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
   validates_presence_of :email
   has_many :authorizations
+  has_many :tasks
          
   def self.from_omniauth(auth, current_user)
     authorization = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s, 
@@ -15,7 +16,7 @@ class User < ActiveRecord::Base
        user = User.new
        user.password = Devise.friendly_token[0,10]
        user.name = auth.info.name
-       user.email = auth.info.email.to_s
+       user.email = "#{auth.uid.to_s}@#{auth.provider}.com"
        if auth.provider == "twitter" 
          user.save(:validate => false) 
        else
