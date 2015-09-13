@@ -1,5 +1,45 @@
-<% @tasks.each do |task| %>
-	<h1><%= link_to task.title, task_path(task.id) %></h1>
-	<%= task.content %>
-<% end %>
+<div id="catListings" class="mainWrap clearfix">
+<div class="col-xs-8">
+<div class="table listings">
+    <% @tasks.each do |task| %>
+    <div id='task-wrap'>
+      <div class="item clearfix <%= solved_task(task) %>">
+        <div class="details">
+          <div class="title">
+            <%= link_to task.title, task, class: "themeURL" %>
+            <div class="author">
+              <%= link_to task.users[0].name, task.users[0] %>
+            </div>
+          </div>   
+          <table>
+            <tbody><tr>
+              <td class="slabel">Category:</td>
+              <td><%= task.category %></td>
+            </tr>
+            <tr>
+              <td class="slabel">Difficulty:</td>
+              <td><%= task.difficulty %></td>
+            </tr>
+            <tr>
+              <td class="slabel">Tags:</td>
+              <td>easy, breezy, tag</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="ps">
+          <div class="price">4.6</div>
+          <div class="sales">rating</div>
+          <div class="price"><%= task.users.count %></div>
+          <div class="sales">solved</div>  
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
+<div class="col-xs-4">
+  Browse by tag: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus libero nisl, ultrices vulputate augue sodales id. Nunc eleifend, erat ut porttitor scelerisque, metus urna suscipit odio, a pretium est justo et libero. Fusce vehicula justo non iaculis sodales. Nulla et vestibulum nisl, at viverra massa. Nam feugiat lobortis rhoncus. Duis ornare neque eleifend lacus vehicula, quis feugiat ex tristique. Praesent in magna mi. Nulla rhoncus nec elit nec scelerisque. Fusce posuere ante tempus tempus tristique. Sed leo neque, eleifend aliquam sagittis ac, vehicula a libero. Morbi auctor facilisis lorem, a faucibus ex fringilla vel.
+</div>
+</div> 
 

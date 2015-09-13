@@ -1,3 +1,164 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.input-answer {
+	width: 40%;
+	float: left;
+}
+
+#task-header {
+    clear: both;
+    padding: 5px 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 1em;
+}
+
+.answers-wrap {
+	padding: 20px;
+	padding-left: 0px;
+}
+
+.votes {
+	display: inline-block;
+    height: 38px;
+    min-width: 38px;
+    margin: 0 3px 0 0;
+    font-size: 11px;
+    color: #777;
+    padding: 5px 5px 6px 5px;
+}
+
+.mini-counts {
+	font-size: 17px;
+    font-weight: 300;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.mainWrap .main {
+    float: left;
+    padding: 0 15px;
+    width: 670px;
+}
+.mainWrap .sidebar {
+    float: left;
+    padding: 0 15px;
+    width: 300px;
+}
+
+#catListings .table > thead > tr > th,
+#catListings .table > tbody > tr > th,
+#catListings .table > tfoot > tr > th,
+#catListings .table > thead > tr > td,
+#catListings .table > tbody > tr > td,
+#catListings .table > tfoot > tr > td {
+    padding: 0;
+    border: 0;
+}
+#catListings .no {
+    text-align: center;
+    margin-bottom: 300px;
+}
+#catListings .no p {
+    font-size: 18px;
+    margin: 10px 0 20px;
+}
+#catListings .item {
+    //border: 1px solid #E5E5E5;
+    background-color: white;
+    //margin-bottom: 30px;
+    padding: 20px 10px 20px 35px;
+}
+#catListings table.listings tr:last-child .item {
+    border-bottom: 0 none;
+    margin-bottom: 50px;
+    padding: 0;
+}
+#catListings .ribbon {
+    left: 1px;
+    top: 1px;
+    z-index: 10;
+}
+
+#catListings .item .details {
+    float: left;
+    //padding-left: 30px;
+    width: 460px;
+    //padding-top: 10px;
+    //padding-bottom: 10px;
+}
+#catListings .item .details .title {
+    min-height: 80px;
+    margin-bottom: 15px;
+}
+#catListings .item .details .title .themeURL {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.2;
+    font-family: 'Roboto';
+}
+#catListings .item .details .title a.themeURL {
+    color: #333;
+}
+#catListings .item .details .title a.themeURL:hover,
+#catListings .item .details .title a.themeURL:focus {
+    color: #005885;
+}
+#catListings .item .details .author {
+    font-size: 13px;
+}
+#catListings .item .details table {
+    font-size: 13px;
+}
+#catListings .item .details table td {
+    vertical-align: top;
+    padding-bottom: 2px;
+}
+#catListings .item .details .slabel {
+    font-weight: 700;
+    padding-right: 20px;
+}
+#catListings .item .details .category span,
+#catListings .item .details .bootver span,
+#catListings .item .details .tags span {
+    font-weight: 700;
+    width: 75px;
+}
+#catListings .item .details span,
+#catListings .item .details span,
+#catListings .item .details span {
+    display: inline-block;
+    font-weight: 700;
+    width: 75px;
+}
+#catListings .item .ps {
+    margin-top: 20px;
+    float: left;
+    text-align: center;
+    width: 80px;
+}
+#catListings .item .ps .price {
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+#catListings .item .ps .sales {
+    color: #888;
+    margin-bottom: 15px;
+}
+#catListings .item .ps .free-label {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+#catListings .solved {
+    border-left: 15px solid #22C710;
+    padding: 20px 10px 20px 20px;
+}
+
+#task-wrap {
+    border-bottom: 10px solid #e5e5e5;
+}
+

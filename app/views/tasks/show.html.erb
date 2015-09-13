@@ -1,0 +1,14 @@
+<div class='content col-xs-12'>
+  <div id="task-header">
+    <h1><%= @task.title %></h1>
+  </div>
+  <div class='task-body'>
+    <%= @task.content %>
+  </div>
+  <div class='answer-form'>
+  <%= form_tag({controller: 'tasks', action: 'solve'}, remote: true) do %>
+    <%= text_field_tag(:answer) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+  </div>
+</div>

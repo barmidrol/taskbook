@@ -3,17 +3,36 @@
 @import "bootstrap";
 
 body {
-    padding-top: 70px; 
-    background: #eee !important;	
+    padding-top: 50px; 
+    font-family: 'Roboto',sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #dae3e7;
+    color: #434343;	
 }
 
-.row {
-	//width: 640px;
-	//margin: 0 auto;
+h3 {
+  	margin-top:4px;
+    margin-bottom:4px;
+  	font-size:18px;
+  	font-family: 'Roboto',sans-serif;
+}
+
+h2 {
+  	margin-top:30px;
+    margin-bottom:5px;
+    font-family: 'Roboto',sans-serif;
+}
+
+h1 {
+    font-family: 'Roboto',sans-serif;
 }
 
 .task-create {
 	padding: 10px;
+}
+
+.remove_field {
+    font-size: 30px;
 }
 
 .wrapper {	
@@ -74,4 +93,36 @@ body {
 
 .landing {
 	margin-left: 100px;
+}
+
+.container {
+	width: 970px;
+	text-align: left;
+}
+
+a {
+	color: #008ed6;
+	-webkit-transition: all 0.25s ease 0s;
+    transition: all 0.25s ease 0s;
+}
+a:hover, a:focus {
+    color: #005885;
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5 {
+	font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+a:focus {
+    outline: none;
+}
+
+.sb-page-header {
+    position: relative;
+    padding: 30px 15px;
+    text-align: center;
+    color: rgba(255,255,255,.8);
+    background-color: #32383e;
+    //background-image: url(/assets/img/bg.png);
+    margin-bottom: 40px;
+    font-size: 20px;
 }

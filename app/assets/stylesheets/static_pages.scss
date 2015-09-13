@@ -1,3 +1,49 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// navbar
+
+.navbar-bright {
+    background-color: #21272d;
+    color: #ddd;
+    border-width: 0;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+    border-bottom-width: 0;
+
+    a {
+    	color: #bbb;
+    }
+}
+
+.navbar-bright li > a:hover, .navbar-bright li.active > a, .navbar-bright .nav .open>a, .navbar-bright .nav .open>a:hover, .navbar-bright .nav a:focus {
+    background-color: #32383e;
+    border-color: transparent;
+}
+
+.navbar-bright .dropdown-menu>li>a:hover {
+    color:#eee;
+}
+
+
+.affix-top {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    -webkit-transition: padding 0.2s linear;
+    -moz-transition: padding 0.2s linear;
+    -o-transition: padding 0.2s linear;
+    transition: padding 0.2s linear;
+}
+
+#masthead {
+    min-height: 350px;
+    background-color: #32383e;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.1);
+    font-weight: 500;
+    border: 0 solid #ccc;
+}

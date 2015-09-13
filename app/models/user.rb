@@ -3,20 +3,22 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, 
          :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
-  validates_presence_of :email
+    validates_presence_of :email
   has_many :authorizations
-  has_many :tasks
+  has_and_belongs_to_many :tasks
          
   def self.from_omniauth(auth, current_user)
     authorization = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s, 
                     :token => auth.credentials.token, :token_secret => auth.credentials.secret).first_or_initialize
+    #pry.binding
     if authorization.user.blank?
-      user =  User.where('email = ?', auth["info"]["email"]).first
-      if user.blank?
+      user =  User.where('email = ?', "#{auth.uid.to_s}@#{auth.provider}.com").first
+      if user.nil?
        user = User.new
        user.password = Devise.friendly_token[0,10]
        user.name = auth.info.name
        user.email = "#{auth.uid.to_s}@#{auth.provider}.com"
+       #user.email = auth.info.email
        if auth.provider == "twitter" 
          user.save(:validate => false) 
        else

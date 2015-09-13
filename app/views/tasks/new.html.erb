@@ -1,0 +1,9 @@
+<%= simple_form_for @task, url: tasks_path, method: 'post' do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title, placeholder: 'Title' %>
+  <%= f.input :difficulty, collection: ['Easy', 'Medium', 'Hard'], default: 'Easy' %>
+  <%= f.input :category, collection: ['Python', 'C#', 'Ruby', "Java"], default: 'Python' %>
+  <%= f.input :content, :input_html => {:rows => 5, :placeholder => "Task description", :class => "span6", "data-provide" => "markdown" }%>
+    <%= f.input :answers, placeholder: "Enter answers to the task separated by comma" %>
+  <%= f.button :submit %>
+<% end %>
