@@ -8,7 +8,7 @@
           <div class="title">
             <%= link_to task.title, task, class: "themeURL" %>
             <div class="author">
-              <%= link_to task.users[0].name, task.users[0] %>
+              <%= link_to_author(task)  %>
             </div>
           </div>   
           <table>
@@ -22,7 +22,9 @@
             </tr>
             <tr>
               <td class="slabel">Tags:</td>
-              <td>easy, breezy, tag</td>
+              <% task.tag_list.each do |tag| %>
+                <td><%= link_to tag, tasks_path, class: 'label label-default' %></td>
+              <% end %>
             </tr>
           </tbody>
         </table>
@@ -37,9 +39,12 @@
     </div>
   <% end %>
 </div>
-</div>
+</div>  
 <div class="col-xs-4">
-  Browse by tag: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus libero nisl, ultrices vulputate augue sodales id. Nunc eleifend, erat ut porttitor scelerisque, metus urna suscipit odio, a pretium est justo et libero. Fusce vehicula justo non iaculis sodales. Nulla et vestibulum nisl, at viverra massa. Nam feugiat lobortis rhoncus. Duis ornare neque eleifend lacus vehicula, quis feugiat ex tristique. Praesent in magna mi. Nulla rhoncus nec elit nec scelerisque. Fusce posuere ante tempus tempus tristique. Sed leo neque, eleifend aliquam sagittis ac, vehicula a libero. Morbi auctor facilisis lorem, a faucibus ex fringilla vel.
+  Browse by tag: </br>
+  <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
+  <%= link_to tag, tasks_path(:tag => tag.to_s), class: 'label label-default' %>
+  <% end %>
 </div>
 </div> 
 

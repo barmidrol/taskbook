@@ -24,6 +24,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 gem 'omniauth-twitter'
 gem 'rails-bootstrap-markdown'
+gem 'acts-as-taggable-on', '~> 3.4'
+gem 'rails-jquery-tokeninput'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug'

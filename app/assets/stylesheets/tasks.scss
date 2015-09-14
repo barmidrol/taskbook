@@ -8,10 +8,11 @@
 }
 
 #task-header {
+    font-size:32px;
     clear: both;
     padding: 5px 0;
     border-bottom: 1px solid #e5e5e5;
-    margin-bottom: 1em;
+    //margin-bottom: 1em;
 }
 
 .answers-wrap {
@@ -160,5 +161,20 @@
 
 #task-wrap {
     border-bottom: 10px solid #e5e5e5;
+}
+
+.cat-diff {
+    font-size: 18px;
+    margin: auto;
+}
+
+.tags {
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.answer-form {
+    margin-top: 20px;
 }
 

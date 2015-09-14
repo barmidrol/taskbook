@@ -3,7 +3,11 @@ class TasksController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
 
 	def index
-		@tasks = Task.all
+    if params[:tag]
+      @tasks = Task.tagged_with(params[:tag])
+    else
+		  @tasks = Task.all
+    end
 	end
 
 	def show
@@ -48,11 +52,10 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:title, :content, :difficulty, :category,
-                                   :answers)
+                                   :answers, :tag_list => [])
     end
 
     def get_answers_array(string)
       string.split(',').to_a
     end
-
 end
