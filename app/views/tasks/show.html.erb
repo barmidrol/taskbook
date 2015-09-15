@@ -17,11 +17,13 @@
     <%= link_to tag, tasks_path(:tag => tag.to_s), class: 'label label-info' %>
     <% end %>
   </div>
+  <% if !solved_task?(@task) %>
   <div class='answer-form'>
     <h3>Your answer</h3>
     <%= form_tag({controller: 'tasks', action: 'solve'}, remote: true, class: "form-inline") do %>
-    <%= text_field_tag(:answer, nil,  class: "form-control") %>
-    <%= submit_tag("Submit", class: "btn btn-default") %>
+      <%= text_field_tag(:answer, nil,  class: "form-control") %>
+      <%= submit_tag("Submit", class: "btn btn-default") %>
     <% end %>
   </div>
+  <% end %>
 </div>

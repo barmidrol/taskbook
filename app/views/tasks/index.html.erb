@@ -1,9 +1,17 @@
 <div id="catListings" class="mainWrap clearfix">
-<div class="col-xs-8">
+<div class="col-sm-8">
 <div class="table listings">
     <% @tasks.each do |task| %>
     <div id='task-wrap'>
-      <div class="item clearfix <%= solved_task(task) %>">
+      <div class="item clearfix <%= solved_task_class(task) %> <%= author_task_class(task) %>">
+        <div class="ps">
+          <div class="price">4.6</div>
+          <div class="sales">rating</div>
+          <div class='stats-solved'>
+            <div class="price"><%= solved_count(task) %></div>
+            <div class="sales">solved</div>
+          </div>  
+        </div>
         <div class="details">
           <div class="title">
             <%= link_to task.title, task, class: "themeURL" %>
@@ -11,40 +19,50 @@
               <%= link_to_author(task)  %>
             </div>
           </div>   
-          <table>
-            <tbody><tr>
-              <td class="slabel">Category:</td>
-              <td><%= task.category %></td>
-            </tr>
-            <tr>
-              <td class="slabel">Difficulty:</td>
-              <td><%= task.difficulty %></td>
-            </tr>
-            <tr>
-              <td class="slabel">Tags:</td>
+          <div>
+              <span class="slabel">Category:</span>
+              <a class='label label-default'><%= task.category %></a>
+            </div>
+            <div>
+              <span class="slabel">Difficulty:</span>
+              <a class="<%= difficulty_label(task) %>"><%= task.difficulty %></a>
+            </div>
+            <div>
+              <span class="slabel">Tags:</span>
               <% task.tag_list.each do |tag| %>
-                <td><%= link_to tag, tasks_path, class: 'label label-default' %></td>
+                <%= link_to tag, tasks_path, class: 'label label-info' %>
               <% end %>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        <div class="ps">
-          <div class="price">4.6</div>
-          <div class="sales">rating</div>
-          <div class="price"><%= task.users.count %></div>
-          <div class="sales">solved</div>  
+            </div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
 </div>  
-<div class="col-xs-4">
-  Browse by tag: </br>
-  <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
-  <%= link_to tag, tasks_path(:tag => tag.to_s), class: 'label label-default' %>
+<div class="col-sm-4">
+  <div class='tag-panel'>
+    Browse by tag: </br>
+    <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
+      <%= link_to tag, tasks_path(:tag => tag.to_s), class: 'label label-info' %>
+    <% end %>
+  </div>
+  <div class='panel panel-default users-top'>
+  <div class="panel-heading">Top users</div>
+  <ul class="list-group">
+  <% User.limit(10).order(rating: :desc).each do |user| %>
+  <li class="list-group-item">
+    <span class="badge"><%= user.rating %></span>
+    <%= link_to user.name, user %>
+  </li>
   <% end %>
+  </ul>
+</div>
 </div>
 </div> 
+
+
+
+
+
+
 

@@ -2,7 +2,7 @@ class CallbacksController < Devise::OmniauthCallbacksController
     skip_before_action :authenticate_user!
     
     def all
-    	p env["omniauth.auth"]
+      p env["omniauth.auth"]
   		user = User.from_omniauth(env["omniauth.auth"], current_user)
       user.skip_confirmation!
   		if user.persisted?

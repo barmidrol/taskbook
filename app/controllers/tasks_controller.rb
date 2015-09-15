@@ -37,10 +37,11 @@ class TasksController < ApplicationController
     respond_to do |format|
       if correct_answers.include?(answer)
         task.users << current_user
-        
+        current_user.rating += rate(task)
         flash.now[:notice] = "Correct!"
         format.js
         task.save
+        current_user.save
       else
         flash.now[:warning] = "incorrect answer! Please try again"
         format.js
@@ -57,5 +58,10 @@ class TasksController < ApplicationController
 
     def get_answers_array(string)
       string.split(',').to_a
+    end
+
+    def rate(task)
+      difficulties = { 'Hard' => 3, 'Medium' => 2, 'Easy' => 1 }
+      difficulties[task.difficulty]
     end
 end
