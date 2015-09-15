@@ -27,6 +27,8 @@ gem 'rails-bootstrap-markdown'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails-jquery-tokeninput'
 gem 'redcarpet'
+gem 'ratyrate'
+gem "jquery-turbolinks"
 
 group :development, :test do
   gem 'byebug'

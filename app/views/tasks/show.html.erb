@@ -26,4 +26,8 @@
     <% end %>
   </div>
   <% end %>
+  Rating
+  <div id="user_star">
+    <%= rating_for @task, "users_rating", :disable_after_rate => true %>
+  </div>
 </div>

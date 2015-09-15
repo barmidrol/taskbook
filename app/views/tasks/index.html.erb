@@ -5,7 +5,7 @@
     <div id='task-wrap'>
       <div class="item clearfix <%= solved_task_class(task) %> <%= author_task_class(task) %>">
         <div class="ps">
-          <div class="price">4.6</div>
+          <div class="price"><%= task_rating(task) %></div>
           <div class="sales">rating</div>
           <div class='stats-solved'>
             <div class="price"><%= solved_count(task) %></div>
@@ -40,8 +40,8 @@
 </div>
 </div>  
 <div class="col-sm-4">
-  <div class='tag-panel'>
-    Browse by tag: </br>
+  <div class='panel panel-default tag-panel'>
+    <div class='panel-heading'>Browse by tag: </div> 
     <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
       <%= link_to tag, tasks_path(:tag => tag.to_s), class: 'label label-info' %>
     <% end %>

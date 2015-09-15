@@ -8,7 +8,7 @@
     <%= f.input :answers, placeholder: "Answers separated with comma" %>
 
     <% countries = ActsAsTaggableOn::Tag.all.map {|tag| {:name => tag.to_s, :id => tag.to_s}}
-      #countries = [{ name: 'Hong Kong', iso_code: 'HK' }, { name: 'Jamaica', iso_code: 'JM' }]
+      countries2 = [{ name: 'Hong Kong', iso_code: 'HK' }, { name: 'Jamaica', iso_code: 'JM' }]
     options = { theme: 'facebook', tokenValue: 'id', allowFreeTagging: true }%>
     <%= f.input :tag_list, placeholder: "Tags separated with comma", input_html: {
   data: { tokeninput: { collection: countries, options: options }}} %>

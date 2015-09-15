@@ -1,5 +1,9 @@
 module TasksHelper
 
+  def task_rating(task)
+    task.average("users_rating").nil? ? '-' : task.average("users_rating").avg 
+  end
+
   def solved_task_class(task)
     if task.users.include?(current_user) && current_user != task.users[0]
       "solved"

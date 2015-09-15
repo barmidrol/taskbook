@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, 
          :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
-    validates_presence_of :email
+  validates_presence_of :email
   has_many :authorizations
   has_and_belongs_to_many :tasks
+  ratyrate_rater
          
   def self.from_omniauth(auth, current_user)
     authorization = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s, 
