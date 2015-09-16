@@ -29,6 +29,7 @@ gem 'rails-jquery-tokeninput'
 gem 'redcarpet'
 gem 'ratyrate'
 gem "jquery-turbolinks"
+gem 'acts_as_commentable_with_threading'
 
 group :development, :test do
   gem 'byebug'

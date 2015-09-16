@@ -1,7 +1,7 @@
 <div id="catListings" class="mainWrap clearfix">
-<div class="col-sm-8">
+<div class="col-md-8 col-xs-12">
 <div class="table listings">
-    <% @tasks.each do |task| %>
+  <% @tasks.each do |task| %>
     <div id='task-wrap'>
       <div class="item clearfix <%= solved_task_class(task) %> <%= author_task_class(task) %>">
         <div class="ps">
@@ -11,15 +11,15 @@
             <div class="price"><%= solved_count(task) %></div>
             <div class="sales">solved</div>
           </div>  
-        </div>
+        </div> 
         <div class="details">
           <div class="title">
             <%= link_to task.title, task, class: "themeURL" %>
             <div class="author">
               <%= link_to_author(task)  %>
-            </div>
+            </div> 
           </div>   
-          <div>
+           <div> 
               <span class="slabel">Category:</span>
               <a class='label label-default'><%= task.category %></a>
             </div>
@@ -32,14 +32,14 @@
               <% task.tag_list.each do |tag| %>
                 <%= link_to tag, tasks_path, class: 'label label-info' %>
               <% end %>
-            </div>
-        </div>
-      </div>
+            </div> 
+        </div> 
+      </div> 
     </div>
-  <% end %>
+  <% end %> 
 </div>
 </div>  
-<div class="col-sm-4">
+<div class="col-md-4 col-xs-12">
   <div class='panel panel-default tag-panel'>
     <div class='panel-heading'>Browse by tag: </div> 
     <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>

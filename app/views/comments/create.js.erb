@@ -1,0 +1,4 @@
+$('.comments').append("<%= escape_javascript(
+render "comment") %>");
+$('.comments').find(".clearfix:last").slideDown("slow");
+$(".form-control").val('');

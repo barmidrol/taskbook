@@ -2,21 +2,32 @@ class TasksController < ApplicationController
   respond_to :html, :js
   before_action :authenticate_user!, only: [:create, :new]
 
-	def index
-    if params[:tag]
-      @tasks = Task.tagged_with(params[:tag])
-    else
-		  @tasks = Task.all
+def index
+  if params[:tag]
+    @tasks = Task.tagged_with(params[:tag])
+  elsif params[:not_solved]
+    all = Task.all
+    @tasks = Array.new
+    all.each do |task|
+      if task.users.count == 1 && current_user != task.users[0]
+        @tasks.push task
+      end
     end
-	end
+  elsif params[:user_id]
+    @tasks = Task.where(:user_id => params[:user_id])
+  else
+    @tasks = Task.all
+  end
+end
 
 	def show
 		@task = Task.find_by(id: params[:id])
+    @comment = Comment.new
 	end
 
   def create
     @task = Task.new(task_params)
-    @task.users << current_user
+    @task.user_id = current_user.id
     @task.answers.delete!(' ')
     if @task.save 
       flash[:notice] = "Task was successfully added!"

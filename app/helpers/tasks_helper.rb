@@ -5,13 +5,13 @@ module TasksHelper
   end
 
   def solved_task_class(task)
-    if task.users.include?(current_user) && current_user != task.users[0]
+    if task.users.include?(current_user) && current_user.id != task.user_id
       "solved"
     end
   end
 
   def author_task_class(task)
-    if current_user == task.users[0]
+    if current_user.id == task.user_id
       'task-author'
     end
   end
@@ -21,11 +21,12 @@ module TasksHelper
   end
 
   def is_author?(task)
-    current_user == task.users[0]
+    current_user.id == task.user_id
   end
 
   def link_to_author(task)
-    link_to task.users[0].name, task.users[0]
+    user = User.find(task.user_id)
+    link_to user.name, user
   end
 
   def content_md(task)
@@ -45,6 +46,6 @@ module TasksHelper
   end 
 
   def solved_count(task)
-    task.users.count - 1
+    task.users.count
   end
 end

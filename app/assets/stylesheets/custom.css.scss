@@ -108,6 +108,7 @@ a:hover, a:focus {
 h1, h2, h3, h4, h5 {
 	font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 a:focus {
     outline: none;
 }
@@ -115,7 +116,7 @@ a:focus {
 .sb-page-header {
     position: relative;
     padding: 30px 15px;
-    text-align: center;
+    //text-align: center;
     color: rgba(255,255,255,.8);
     background-color: #32383e;
     //background-image: url(/assets/img/bg.png);

@@ -1,0 +1,6 @@
+<li class="clearfix" style='display: none;'>
+  <div class="post-comments">
+      <p class="meta"><%= @comment.created_at.to_formatted_s(:long) %> <%= link_to @comment.user.name, @comment.user %> says: </p>
+        <%= @comment.body %>
+  </div>
+</li>

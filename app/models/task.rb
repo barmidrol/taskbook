@@ -3,4 +3,5 @@ class Task < ActiveRecord::Base
   has_and_belongs_to_many :users
   ratyrate_rateable "users_rating"
   acts_as_taggable 
+  acts_as_commentable
 end

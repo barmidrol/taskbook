@@ -13,6 +13,9 @@
     padding: 5px 0;
     border-bottom: 1px solid #e5e5e5;
     //margin-bottom: 1em;
+    h2 {
+        font-size:24px;
+    }
 }
 
 .answers-wrap {
@@ -37,26 +40,7 @@
     margin-bottom: 4px;
 }
 
-.mainWrap .main {
-    float: left;
-    padding: 0 15px;
-    width: 670px;
-}
-.mainWrap .sidebar {
-    float: left;
-    padding: 0 15px;
-    width: 300px;
-}
 
-#catListings .table > thead > tr > th,
-#catListings .table > tbody > tr > th,
-#catListings .table > tfoot > tr > th,
-#catListings .table > thead > tr > td,
-#catListings .table > tbody > tr > td,
-#catListings .table > tfoot > tr > td {
-    padding: 0;
-    border: 0;
-}
 #catListings .no {
     text-align: center;
     margin-bottom: 300px;
@@ -66,17 +50,13 @@
     margin: 10px 0 20px;
 }
 #catListings .item {
-    min-width: 400px;
+    //min-width: 400px;
     border-left: 15px solid #D8D8D8;
     background-color: #F2F2F2;
     //margin-bottom: 30px;
     padding: 20px 10px 20px 35px;
 }
-#catListings table.listings tr:last-child .item {
-    border-bottom: 0 none;
-    margin-bottom: 50px;
-    padding: 0;
-}
+
 #catListings .ribbon {
     left: 1px;
     top: 1px;
@@ -84,6 +64,7 @@
 }
 
 #catListings .item .details {
+position: relative;
     //float: left;
     //padding-left: 30px;
     //width: 460px;
@@ -92,6 +73,7 @@
 }
 #catListings .item .details .title {
     margin-bottom: 15px;
+    //width: 200px;
 }
 #catListings .item .details .title .themeURL {
     font-size: 26px;
@@ -108,13 +90,6 @@
 }
 #catListings .item .details .author {
     font-size: 13px;
-}
-#catListings .item .details table {
-    font-size: 13px;
-}
-#catListings .item .details table td {
-    vertical-align: top;
-    padding-bottom: 2px;
 }
 #catListings .item .details .slabel {
     font-weight: 700;
@@ -137,8 +112,10 @@
     //margin-top: 20px;
     margin-right: 30px;
     float: left;
+    display: block;
     text-align: center;
     width: auto;
+    height: 100%;
 }
 #catListings .item .ps .price {
     font-size: 32px;

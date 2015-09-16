@@ -1,0 +1,26 @@
+<div class="col-xs-12 comments-wrap">
+    <div class="blog-comment">
+    <h4>Comments: <%= @task.root_comments.count %></h4>
+    <ul class="comments">
+      <% @task.root_comments.each do |comment| %>
+      <li class="clearfix">
+        <div class="post-comments">
+            <p class="meta"><%= comment.created_at.to_formatted_s(:long) %> <%= link_to comment.user.name, comment.user %> says: </p>
+              <%= comment.body %>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <div class='comment-form'>
+    <% if user_signed_in? %>
+    <h2>Leave a comment</h2>
+      <%= form_tag({controller: 'comments', action: 'create'}, remote: true, class: "form-horizontal") do %>
+        <%= text_area :body, nil,  { class: "form-control", rows: 8 } %>
+        <%= submit_tag "Submit", class: "btn btn-default" %>
+      <% end %>
+    <% else %>
+      <div class='well well-sm'>You should login to add comments</div>
+    <% end %>
+  </div>
+  </div>
+</div>
