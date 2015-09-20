@@ -21,16 +21,17 @@
           </div>   
            <div> 
               <span class="slabel">Category:</span>
-              <a class='label label-default'><%= task.category %></a>
+              <%= link_to task.category, tasks_path(category: task.category), class: 'label label-default' %>
             </div>
             <div>
               <span class="slabel">Difficulty:</span>
-              <a class="<%= difficulty_label(task) %>"><%= task.difficulty %></a>
+              <%= link_to task.difficulty, tasks_path(difficulty: task.difficulty), 
+                class: difficulty_label(task) %>
             </div>
             <div>
               <span class="slabel">Tags:</span>
               <% task.tag_list.each do |tag| %>
-                <%= link_to tag, tasks_path, class: 'label label-info' %>
+                <%= link_to tag, tasks_path(:tag => tag), class: 'label label-info' %>
               <% end %>
             </div> 
         </div> 
@@ -42,14 +43,16 @@
 <div class="col-md-4 col-xs-12">
   <div class='panel panel-default tag-panel'>
     <div class='panel-heading'>Browse by tag: </div> 
-    <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
-      <%= link_to tag, tasks_path(:tag => tag.to_s), class: 'label label-info' %>
-    <% end %>
+    <div class='panel-body tags-body'>
+      <% ActsAsTaggableOn::Tag.most_used.each do |tag| %>
+        <%= link_to tag, tasks_path(:tag => tag.to_s), class: 'label label-info' %>
+      <% end %>
+    </div>
   </div>
   <div class='panel panel-default users-top'>
   <div class="panel-heading">Top users</div>
   <ul class="list-group">
-  <% User.limit(10).order(rating: :desc).each do |user| %>
+  <% User.order(rating: :desc).limit(10).each do |user| %>
   <li class="list-group-item">
     <span class="badge"><%= user.rating %></span>
     <%= link_to user.name, user %>

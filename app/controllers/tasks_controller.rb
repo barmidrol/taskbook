@@ -1,31 +1,50 @@
 class TasksController < ApplicationController
   respond_to :html, :js
   before_action :authenticate_user!, only: [:create, :new]
+  before_action :set_task, only: [:show, :edit, :update, :solve, :destroy]
+  before_action :correct_user?, only: [:update, :edit]
 
-def index
-  if params[:tag]
-    @tasks = Task.tagged_with(params[:tag])
-  elsif params[:not_solved]
-    all = Task.all
-    @tasks = Array.new
-    all.each do |task|
-      if task.users.count == 1 && current_user != task.users[0]
-        @tasks.push task
-      end
-    end
-  elsif params[:user_id]
-    @tasks = Task.where(:user_id => params[:user_id])
-  else
+  def index
     @tasks = Task.all
+    if params[:tag]
+      @tasks = Task.tagged_with(params[:tag])
+    elsif params[:not_solved]
+      all = Task.all
+      @tasks = Array.new
+      all.each do |task|
+        if task.users.include?(current_user) == 0 && current_user.id != task.user_id
+          @tasks.push task
+        end
+      end
+    elsif params[:user_id]  
+      @tasks = Task.where(user_id: params[:user_id])
+    elsif params[:category]
+      @tasks = Task.where(category: params[:category])
+    elsif params[:difficulty]
+      @tasks = Task.where(difficulty: params[:difficulty])
+    end
+    #pry.binding
   end
-end
 
 	def show
-		@task = Task.find_by(id: params[:id])
     @comment = Comment.new
 	end
 
+  def edit
+  end
+
+  def destroy
+    @task.destroy
+    redirect_to tasks_path, notice: "Task was successfully deleted!"
+  end
+
+  def update
+    @task.update(task_params)
+    redirect_to @task
+  end
+
   def create
+    @user = current_user
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     @task.answers.delete!(' ')
@@ -42,16 +61,16 @@ end
   end
 
   def solve
-    task = Task.find_by(id: params[:id])
     answer = params[:answer]
-    correct_answers = get_answers_array(task.answers)
+    correct_answers = get_answers_array(@task.answers)
     respond_to do |format|
       if correct_answers.include?(answer)
-        task.users << current_user
-        current_user.rating += rate(task)
+        current_user.solved += 1
+        @task.users << current_user
+        current_user.rating += rate(@task)
         flash.now[:notice] = "Correct!"
         format.js
-        task.save
+        @task.save
         current_user.save
       else
         flash.now[:warning] = "incorrect answer! Please try again"
@@ -71,8 +90,17 @@ end
       string.split(',').to_a
     end
 
+    def set_task
+      @task = Task.find(params[:id])
+    end
+
     def rate(task)
       difficulties = { 'Hard' => 3, 'Medium' => 2, 'Easy' => 1 }
       difficulties[task.difficulty]
     end
+
+    def correct_user?
+      redirect_to tasks_path, warning: "You don't have permissions to do this" unless current_user == @user
+    end
+
 end

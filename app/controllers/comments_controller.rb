@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
       format.js
       format.html { redirect_to tasks_path }
     end
+
   end
 
 end

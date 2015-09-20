@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap-editable
+//= require bootstrap-editable-rails
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap-markdown-bundle
@@ -20,3 +22,5 @@
 //= require jquery.raty
 //= require ratyrate
 //= require turbolinks
+//= require js-routes
+//= require bootbox

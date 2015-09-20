@@ -14,6 +14,10 @@
     a {
     	color: #bbb;
     }
+
+    .dropdown-menu > li > a {
+        color: #bbb;
+    }
 }
 
 .navbar-bright li > a:hover, .navbar-bright li.active > a, .navbar-bright .nav .open>a, .navbar-bright .nav .open>a:hover, .navbar-bright .nav a:focus {
@@ -33,4 +37,15 @@
     -moz-transition: padding 0.2s linear;
     -o-transition: padding 0.2s linear;
     transition: padding 0.2s linear;
+}
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.icon-bar {
+    background-color: #fff;
 }

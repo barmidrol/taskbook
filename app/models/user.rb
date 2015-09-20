@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-
+  has_merit
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, 
          :omniauthable, :omniauth_providers => [:facebook, :twitter, :vkontakte]
   validates_presence_of :email
+  validates :name, presence: true
   has_many :authorizations
+  has_many :comments
   has_and_belongs_to_many :tasks
   ratyrate_rater
          

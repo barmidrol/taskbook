@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#index'
+  root 'tasks#index'
+  get 'search', to: 'search#search'
   post 'tasks/:id/solve' => 'tasks#solve'
   post 'tasks/:id/comments' => 'comments#create'
+  post 'users/:id/change_username' => 'users#change_username'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

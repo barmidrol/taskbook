@@ -45,3 +45,23 @@ span.tags {
 	font-weight: bold;
 	padding: 2px 4px;
 }
+
+.themeURL {
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.2;
+    font-family: 'Roboto';
+}
+
+.title a.themeURL {
+    color: #333;
+}
+
+themeURL:hover,
+themeURL:focus {
+    color: #005885;
+}
+
+.title {
+	margin-bottom: 15px;
+}

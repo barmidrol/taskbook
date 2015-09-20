@@ -30,6 +30,12 @@ gem 'redcarpet'
 gem 'ratyrate'
 gem "jquery-turbolinks"
 gem 'acts_as_commentable_with_threading'
+gem "js-routes"
+gem 'bootstrap-editable-rails'
+gem 'merit'
+gem 'bootbox-rails', '~>0.4'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development, :test do
   gem 'byebug'

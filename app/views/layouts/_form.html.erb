@@ -1,0 +1,17 @@
+<div class='col-xs-12'>
+<%= simple_form_for @task do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title, placeholder: 'Title' %>
+  <%= f.input :difficulty, collection: ['Easy', 'Medium', 'Hard'], default: 'Easy' %>
+  <%= f.input :category, collection: ['Python', 'C#', 'Ruby', "Java"], default: 'Python' %>
+  <%= f.input :content, :input_html => {:rows => 5, :placeholder => "Task description", :class => "span6", "data-provide" => "markdown" }%>
+    <%= f.input :answers, placeholder: "Answers separated with comma" %>
+
+    <% countries = ActsAsTaggableOn::Tag.all.map {|tag| {:name => tag.to_s, :id => tag.to_s}}
+    options = { theme: 'facebook', tokenValue: 'id', allowFreeTagging: true, prePopulate: @task.tag_list.map {|tag| {:name => tag.to_s, :id => tag.to_s}} }%>
+    <%= f.input :tag_list, placeholder: "Tags separated with comma", input_html: {
+  data: { tokeninput: { collection: countries, options: options }}} %>
+  
+  <%= f.button :submit %>
+<% end %>
+</div>
