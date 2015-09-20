@@ -1,2 +1,7 @@
 //$(".messages").html("<%= j render 'layouts/messages' %>");
-bootbox.alert("<%= flash[:warning] %>");  
+<% if flash[:warning] %>
+	bootbox.alert("<%= flash[:warning] %>");
+<% else %>
+	$('.answer-form').html('');
+	bootbox.alert("<%= flash[:notice] %>");
+<% end %>  

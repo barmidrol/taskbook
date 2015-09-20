@@ -23,4 +23,4 @@
 //= require ratyrate
 //= require turbolinks
 //= require js-routes
-//= require bootbox
+

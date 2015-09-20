@@ -5,7 +5,7 @@ module TasksHelper
   end
 
   def task_rating(task)
-    task.average("users_rating").nil? ? '-' : task.average("users_rating").avg 
+    task.average("users_rating").nil? ? '-' : task.average("users_rating").avg.round(1)
   end
 
   def top_tasks(user) 

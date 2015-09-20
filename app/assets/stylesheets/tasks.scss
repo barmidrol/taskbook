@@ -2,17 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.input-answer {
-	width: 40%;
-	float: left;
-}
-
 #task-header {
     font-size:32px;
     clear: both;
     padding: 5px 0;
     border-bottom: 1px solid #e5e5e5;
-    //margin-bottom: 1em;
     h2 {
         font-size:24px;
     }
@@ -51,10 +45,8 @@
     margin: 10px 0 20px;
 }
 #catListings .item {
-    //min-width: 400px;
     border-left: 15px solid #D8D8D8;
     background-color: #F2F2F2;
-    //margin-bottom: 30px;
     padding: 20px 10px 20px 35px;
 }
 
@@ -64,38 +56,35 @@
     z-index: 10;
 }
 
-#catListings .item .details {
-position: relative;
-    //float: left;
-    //padding-left: 30px;
-    //width: 460px;
-    //padding-top: 10px;
-    //padding-bottom: 10px;
-}
 #catListings .item .details .title {
     margin-bottom: 15px;
-    //width: 200px;
 }
+
 #catListings .item .details .title .themeURL {
     font-size: 26px;
     font-weight: 300;
     line-height: 1.2;
     font-family: 'Roboto';
 }
+
 #catListings .item .details .title a.themeURL {
     color: #333;
 }
+
 #catListings .item .details .title a.themeURL:hover,
 #catListings .item .details .title a.themeURL:focus {
     color: #005885;
 }
+
 #catListings .item .details .author {
     font-size: 13px;
 }
+
 #catListings .item .details .slabel {
     font-weight: 700;
     padding-right: 20px;
 }
+
 #catListings .item .details .category span,
 #catListings .item .details .bootver span,
 #catListings .item .details .tags span {
@@ -136,7 +125,6 @@ position: relative;
 
 #catListings .solved {
     border-left: 15px solid #81F781;
-   // padding: 20px 10px 20px 20px;
     background-color: #CEF6CE;
 }
 
@@ -166,12 +154,7 @@ position: relative;
 }
 
 .modal {
-    //width: 400px;
-   // height: 50px;
     margin-top: 100px;
-    //left: 50%;
-   // margin-top: -25px;
-   // margin-left: -200px;
     padding: 20px;
 }
 

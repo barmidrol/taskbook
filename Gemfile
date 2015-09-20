@@ -36,6 +36,9 @@ gem 'merit'
 gem 'bootbox-rails', '~>0.4'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'faker'
+gem 'populator'
+gem "jquery-fileupload-rails"
 
 group :development, :test do
   gem 'byebug'

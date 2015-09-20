@@ -9,10 +9,9 @@ class TasksController < ApplicationController
     if params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     elsif params[:not_solved]
-      all = Task.all
       @tasks = Array.new
-      all.each do |task|
-        if task.users.include?(current_user) == 0 && current_user.id != task.user_id
+      Task.all.each do |task|
+        if !task.users.include?(current_user) && current_user.id != task.user_id
           @tasks.push task
         end
       end
@@ -23,7 +22,6 @@ class TasksController < ApplicationController
     elsif params[:difficulty]
       @tasks = Task.where(difficulty: params[:difficulty])
     end
-    #pry.binding
   end
 
 	def show
@@ -40,7 +38,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    redirect_to @task
+    redirect_to @task, notice: 'Updated!'
   end
 
   def create
@@ -68,7 +66,7 @@ class TasksController < ApplicationController
         current_user.solved += 1
         @task.users << current_user
         current_user.rating += rate(@task)
-        flash.now[:notice] = "Correct!"
+        flash.now[:notice] = "Correct! Rating +#{rate(@task)}"
         format.js
         @task.save
         current_user.save
@@ -100,7 +98,7 @@ class TasksController < ApplicationController
     end
 
     def correct_user?
-      redirect_to tasks_path, warning: "You don't have permissions to do this" unless current_user == @user
+      redirect_to tasks_path, warning: "You don't have permissions to do this" unless current_user != @user
     end
 
 end

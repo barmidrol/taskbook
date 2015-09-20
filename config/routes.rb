@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", :registrations => "registrations" }
   resources :users, :tasks
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
